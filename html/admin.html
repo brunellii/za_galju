@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Pizzeria Sopranos</title>
+    <link rel="stylesheet" href="kosarica.css">
+</head>
+<body>
+
+    <header id="header">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="kosarica.html"><i class="fas fa-shopping-cart"></i></a></li>
+                <li><a href="login.html"><i class="fas fa-user"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="adminSection" class="login-section">
+        <h2>Admin Panel - Orders</h2>
+
+        <section id="dateFilterContainer">
+            <label for="calendar">Filter by Date:</label>
+            <input type="date" id="calendar" onchange="filterOrdersByDate()">
+            <button id="filterButton" onclick="filterOrdersByDate()">Apply Filter</button>
+        </section>
+        
+
+        <table id="ordersTable">
+            <thead>
+                <tr>
+                    <th>
+                        <a href="javascript:void(0);" onclick="sortTable('narudzba_id')">Order ID</a>
+                    </th>
+                    <th>Price</th>
+                    <th>Order Date</th>
+                    <th>Delivery Date</th>
+                    <th>
+                        <a href="javascript:void(0);" onclick="sortTable('korisnik_id')">User ID</a>
+                    </th>
+                    <th>Payment Method</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows will be dynamically populated -->
+            </tbody>
+        </table>
+    </section>
+
+    <script src="admin.js"></script>
+</body>
+</html>

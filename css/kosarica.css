@@ -1,0 +1,184 @@
+/* kosarica.css */
+h1 {
+    color: #f8b595;
+}
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Pacifico', cursive;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background: black;  /* Dodano tamnije pozadinsko bojanje za navigaciju */
+    padding: 10px 0;  /* Dodan padding za bolje razmještaj linkova */
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 40px; /* Smanjen razmak između linkova */
+}
+
+nav ul li:last-child {
+    margin-right: 0; /* Uklanja margin na zadnjem elementu */
+}
+
+nav ul li a {
+    padding: 0 15px;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Roboto Slab", serif;
+    font-size: 20px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #f8b595; /* Boja prilikom hover-a za linkove */
+}
+
+table {
+    width: 80%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #fff;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #f8b595;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #f8b595;
+}
+
+.fa-trash-alt {
+    color: red;
+    cursor: pointer;
+}
+
+/* Stil za modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* Stiliziranje sekcije za filtriranje datuma */
+#dateFilterContainer {
+    margin: 20px 0;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Stil za labelu za datum */
+#dateFilterContainer label {
+    margin-right: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+/* Stil za input polje za datum */
+#calendar {
+    padding: 10px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    width: 200px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+/* Stil za input polje pri fokusu */
+#calendar:focus {
+    border-color: black;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Stil za dugme koje potvrđuje filtriranje */
+#filterButton {
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 10px;
+}
+
+/* Stil za dugme pri hoveru */
+#filterButton:hover {
+    background-color: #0056b3;
+}
+
+/* Stil za cijeli container za filter */
+#dateFilterContainer {
+    margin: 30px 0;
+    padding: 15px;
+    background-color: #f8b595;
+    border-radius: 8px;
+    border: 1px solid #f8b595;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}

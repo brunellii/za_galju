@@ -1,0 +1,103 @@
+/* styles.css */
+/* CSS for Navigation */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center; /* centrirani linkovi */
+}
+
+nav ul li {
+    display: inline-block; /* Promijenjeno na inline-block */
+    margin-right: 100px; /* razmaci linkova */
+}
+
+nav ul li:last-child {
+    margin-right: 20px; /* maknuta margina sa skroz desnog elementa nav-a */
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-family: "Roboto Slab", serif;
+    font-size: 20px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ff7e5f;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Pacifico', cursive;
+    margin: 0;
+    padding: 20px;
+}
+
+.menu {
+    border: 2px solid #f8b595;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 20px auto;
+    background: #1c1c1c; /* Slightly lighter black for the menu background */
+}
+
+.menu-title {
+    text-align: center;
+    font-size: 32px;
+    color: #f8b595;
+}
+
+.pizza-menu {
+    display: flex;
+    justify-content: space-between;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    width: 48%; /* Adjusted to avoid squeezing items */
+}
+
+.pacifico-regular {
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.pizza-item {
+    font-weight: bold;
+    position: relative;
+    font-family: "Pacifico", cursive;
+    display: block; /* Promijenjeno na block */
+    cursor: pointer;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #f8b595;
+}
+
+.pizza-item p {
+    margin: 4px 0;
+}
+
+.description {
+    font-size: 14px;
+    color: #ccc; /* Lighter text for descriptions */
+}
+
+.price {
+    color: #f8b595;
+    font-weight: bold;
+}
+
+.cart-icon {
+    position: absolute;
+    top: 10px; /* Adjust according to your design needs */
+    right: 10px; /* Adjust according to your design needs */
+    color: #f8b595; /* Same color as the price for consistency */
+    font-size: 24px; /* Icon size, adjust as needed */
+    cursor: pointer; /* Changes cursor on hover to indicate interactiveness */
+}

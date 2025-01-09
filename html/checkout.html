@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="checkout.css">
+    <script>
+
+        // Funkcija koja otvara novi prozor za verifikaciju broja telefona
+        function openPhoneVerificationWindow() {
+        const phoneVerificationWindow = window.open("phone-verification.html", "Phone Verification", "width=600,height=400");
+        }
+
+        // Funkcija koja validira obrazac
+        function onSubmitForm(event) {
+            // Tu možete dodati bilo kakve validacije prije nego što otvori novi prozor
+            // Ako želite da blokirate predaju obrazca dok se ne završi verifikacija, možete to ovdje dodati
+            event.preventDefault();
+            openPhoneVerificationWindow(); // Otvoriti prozor za verifikaciju
+        }
+
+        function showThankYouMessage() {
+            var messageDiv = document.createElement('div');
+            messageDiv.id = 'thankYouMessage';
+            messageDiv.textContent = 'Thank you for you order!';
+            document.body.appendChild(messageDiv);
+            
+            setTimeout(function() {
+                messageDiv.remove();
+                // Check if opener is available
+                if (window.opener) {
+                    window.opener.location.reload(); // Refresh the opener window
+                }
+                window.close(); // Close the current window/tab
+            }, 5000);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load places into the dropdown
+            fetch('kvartovi.php')
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data); // Debugging line to check the response
+                    const select = document.getElementById('place');
+                    data.forEach(place => {
+                        const option = document.createElement('option');
+                        option.value = place.mjesto_id; // Set value to ID
+                        option.textContent = `${place.naziv} (${place.post_broj})`; // Display naziv and post_broj
+                        select.appendChild(option);
+                    });
+                })
+                .catch(error => console.error('Error fetching places:', error));
+
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('order_status') === 'success') {
+                showThankYouMessage();
+            }
+
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const pizzaTypeField = document.getElementById('pizzaType');
+            const priceField = document.getElementById('price');
+            const quantityField = document.getElementById('quantity');
+            const pizzaDataField = document.getElementById('pizzaData');
+
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+
+            const pizzaTypes = cart.map(item => `${item.name} x${item.quantity}`).join(', ');
+            const totalPrice = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+            const totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
+
+            pizzaTypeField.value = pizzaTypes;
+            priceField.value = `${totalPrice} $`;
+            quantityField.value = totalQuantity;
+            quantityField.readOnly = true;
+
+            pizzaDataField.value = JSON.stringify(cart);
+
+            // Handle form submission
+            document.querySelector('form').addEventListener('submit', function(event) {
+                //event.preventDefault(); // Prevent default form submission
+
+                //var email = document.getElementById('email').value; // Get email from form
+                //sendOrderTimerEmail(email).then(success => {
+                    //if (success) {
+                       // this.submit(); // Proceed with form submission
+                    //} else {
+                       // alert('Failed to send email. Please try again.');
+                    //}
+                //});
+            });
+        });
+
+// Funkcija koja sprječava unos nepoželjnih znakova (samo brojevi i + su dozvoljeni)
+function restrictInput(event) {
+            var charCode = event.which ? event.which : event.keyCode;
+            // Ako uneseni karakter nije broj i nije '+', blokiraj unos
+            if ((charCode < 48 || charCode > 57) && charCode !== 43) {
+                event.preventDefault();
+            }
+        }
+
+        // Funkcija koja provjerava ispravnost broja telefona
+        function validatePhoneNumber() {
+            var phoneInput = document.getElementById('phone');
+            var phoneValue = phoneInput.value;
+            
+            // Regex za provjeru ispravnog formata broja telefona (npr. +1234567890)
+            var phoneRegex = /^\+?\d{10,15}$/;
+            
+            // Ako broj ne odgovara formatu, prikazujemo grešku i vraćamo false
+            if (!phoneRegex.test(phoneValue)) {
+                document.getElementById('phoneError').style.display = 'block';
+                return false;
+            } else {
+                document.getElementById('phoneError').style.display = 'none';
+                return true;
+            }
+        }
+
+        // Funkcija koja će se pozvati pri pokušaju slanja obrasca
+        function onSubmitForm(event) {
+            // Provjeravamo je li broj telefona validan
+            if (!validatePhoneNumber()) {
+                event.preventDefault();  // Sprječava slanje obrasca
+                alert("Please enter a valid phone number!"); // Dodatna poruka za korisnika
+                return false;
+            }
+            return true; // Ako je broj validan, obrazac će biti poslan
+        }
+
+        // Funkcija koja omogućava odabir samo jedne opcije za plačanje (gotovina ili kartica)
+        function togglePaymentMethod() {
+            var payWithCash = document.getElementById('payWithCash');
+            var payWithCard = document.getElementById('payWithCard');
+            
+            // Ako je označeno "Pay with cash", onemogućava se "Pay with card"
+            if (payWithCash.checked) {
+                payWithCard.disabled = true;
+            } else {
+                payWithCard.disabled = false;
+            }
+            
+            // Ako je označeno "Pay with card", onemogućava se "Pay with cash"
+            if (payWithCard.checked) {
+                payWithCash.disabled = true;
+            } else {
+                payWithCash.disabled = false;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Aktiviranje funkcionalnosti za odabir plačanja
+            togglePaymentMethod();
+        });
+    </script>
+</head>
+<body>
+    <h1>Checkout</h1>
+    <form action="submit-order.php" method="post" onsubmit="return onSubmitForm(event);">
+        <div>
+            <label for="fullName">Full name:</label>
+            <input type="text" id="fullName" name="fullName" autocomplete="off" required>
+        </div>
+        <div>
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" autocomplete="off" required>
+        </div>
+        <div>
+            <label for="place">Place:</label>
+            <select id="place" name="place" required>
+                <option value="">Select a place</option>
+                <!-- Mjesta -->
+            </select>
+        </div>
+        <div>
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" autocomplete="off">
+            <!-- Poruka koja se prikazuje kada uneseni email nije validan -->
+            <p id="emailError" style="color: red; display: none;">Please enter a valid email address (e.g. user@example.com).</p>
+        </div>
+        <div>
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone" placeholder="+" autocomplete="off" required onkeypress="restrictInput(event)">
+            <!-- Poruka koja se prikazuje kada uneseni broj nije validan -->
+            <p id="phoneError" style="color: red; display: none;">Please enter a valid phone number with the country code (e.g. +1234567890).</p>
+        </div>
+        <div>
+            <label for="pizzaType">Your choices:</label>
+            <input type="text" id="pizzaType" name="pizzaType" readonly>
+        </div>
+        <div>
+            <label for="price">Total Price:</label>
+            <input type="text" id="price" name="price" readonly>
+        </div>
+        <div>
+            <label for="quantity">Quantity:</label>
+            <input type="hidden" id="quantity" name="quantity">
+        </div>
+        <div>
+            <label for="payWithCash">I want to pay with cash at delivery</label>
+            <input type="checkbox" id="payWithCash" name="payWithCash" onchange="togglePaymentMethod()">
+        </div>
+        <div>
+            <label for="payWithCard">I want to pay with card at delivery:</label>
+            <input type="checkbox" id="payWithCard" name="payWithCard" onchange="togglePaymentMethod()">
+        </div>
+        <input type="hidden" id="pizzaData" name="pizzaData">
+        <div>
+            <input type="submit" value="Order">
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Menu</title>
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header id="header">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="korasica.html"><i class="fas fa-shopping-cart"></i></a></li> <!-- Dodaj ikonicu kosarice -->
+                <div id="cartDisplay"></div>
+            </ul>
+        </nav>
+    </header>
+    <div class="menu">
+        <h1 class="menu-title">MENU</h1>
+        <h2 class="section-title">Pizzas</h2>
+        <div class="pizza-menu">
+            <div class="column">
+                <!-- First Column -->
+                 <!-- Pizze-->
+                <div class="pizza-item">
+                    <p><span>Margherita</span> <span class="price">$12</span></p>
+                    <p class="description">Classic pizza with fresh tomato sauce, mozzarella, and basil.</p>
+                    <i class="fas fa-cart-plus cart-icon" onclick="addToCart('Margherita', 12, 1)"></i>
+                </div>
+                <div class="pizza-item">
+                    <p><span>Pepperoni</span> <span class="price">$15</span></p>
+                    <p class="description">Spicy pepperoni with mozzarella over a tomato base.</p>
+                    <i class="fas fa-cart-plus cart-icon" onclick="addToCart('Pepperoni', 15, 1)"></i>
+                </div>
+                <div class="pizza-item">
+                    <p><span>Buffalo</span> <span class="price">$15</span></p>
+                    <p class="description">Buffalo chicken, onions, buffalo sauce, and blue cheese.</p>
+                    <i class="fas fa-cart-plus cart-icon" onclick="addToCart('Buffalo', 15, 1)"></i>
+                </div>
+                <div class="pizza-item">
+                    <p><span>Mushroom</span> <span class="price">$12</span></p>
+                    <p class="description">Sautéed mushrooms with creamy garlic sauce and mozzarella.</p>
+                    <i class="fas fa-cart-plus cart-icon" onclick="addToCart('Mushroom', 12, 1)"></i>
+                </div>
+                <div class="pizza-item">
+                    <p><span>Four Cheese</span> <span class="price">$14</span></p>
+                    <p class="description">Mozzarella, cheddar, feta, and gorgonzola.</p>
+                    <i class="fas fa-cart-plus cart-icon" onclick="addToCart('Four Cheese', 14, 1)"></i>
+                </div>
+                <h2 class="section-title">Plates</h2>
+                <!--Plate -->
+                <div class="pizza-item">
+                    <p><span>Seafood Platter</span> <span class="price">$13</span></p>
+                    <p class="description">Shrimp, scallops, calamari, fish fillets, dipping sauces.</p>
+                    <i class="fas fa-cart-plus cart-icon" onclick="addToCart('Seafood Platter', 13, 1)"></i>
+                </div>
+                <div class="pizza-item">
+                    <p><span>Charcuterie Board</span> <span class="price">$16</span></p>
+                    <p class="description">Cured meats, cheeses, olives, nuts, crackers.</p>
+                    <i class="fas fa-cart-plus cart-icon" onclick="addToCart('Charcuterie Board', 16, 1)"></i>
+                </div>
+                <div class="pizza-item">
+                    <p><span>Mixed Grill Platter</span> <span class="price">$18</span></p>
+                    <p class="description">Chicken, steak, lamb chops, sausages, grilled veggies.</p>
+                    <i class="fas fa-cart-plus cart-icon" onclick="addToCart('Mixed Grill Platter', 18, 1)"></i>
+                </div>
+                <div class="pizza-item">
+                    <p><span>Mediterranean Platter</span> <span class="price">$14</span></p>
+                    <p class="description">Hummus, falafel, pita, stuffed grape leaves, olives.</p>
+                    <i class="fas fa-cart-plus cart-icon" onclick="addToCart('Mediterranean Platter', 14, 1)"></i>
+                </div>
+            </div>
+            <div class="column">
+                <!-- Second Column -->
+                <!-- Repeat for the next 10 pizzas with descriptions -->
+                <h2 class="section-title">Pastas</h2>
+                 <!-- Tjestenine -->
+                <div class="pizza-item">
+                    <p><span>Spaghetti Carbonara</span> <span class="price">$15</span></p>
+                    <p class="description">Spaghetti, eggs, Pecorino Romano, guanciale, black pepper.</p>
+                    <i class="fas fa-cart-plus cart-icon" onclick="addToCart('Spicy Thai', 15, 1)"></i>
+                </div>
+                <div class="pizza-item">
+                    <p><span>Penne Arrabbiata</span> <span class="price">$17</span></p>
+                    <p class="description">Penne, tomatoes, garlic, red chili peppers, olive oil.</p>
+                    <i class="fas fa-cart-plus cart-icon" onclick="addToCart('Penne Arrabbiata', 17, 1)"></i>
+                </div>
+                <div class="pizza-item">
+                    <p><span>Fettuccine Alfredo</span> <span class="price">$16</span></p>
+                    <p class="description">Fettuccine, butter, Parmesan cheese..</p>
+                    <i class="fas fa-cart-plus cart-icon" onclick="addToCart('Fettuccine Alfredo', 16, 1)"></i>
+                </div>
+                <div class="pizza-item">
+                    <p><span>Lasagna Bolognese</span> <span class="price">$13</span></p>
+                    <p class="description">Lasagna noodles, Bolognese sauce, béchamel, Parmesan.</p>
+                    <i class="fas fa-cart-plus cart-icon" onclick="addToCart('Lasagna Bolognese', 13, 1)"></i>
+                </div>
+                <!-- Burgeri -->
+                <h2 class="section-title">Burgers</h2>
+                <div class="pizza-item">
+                    <p><span>BBQ Bacon Burger</span> <span class="price">$15</span></p>
+                    <p class="description">Beef patty, bacon, cheddar, BBQ sauce, fried onions.</p>
+                    <i class="fas fa-cart-plus cart-icon" onclick="addToCart('BBQ Bacon Burger', 15, 1)"></i>
+                </div>
+                <div class="pizza-item">
+                    <p><span>Mushroom Swiss Burger</span> <span class="price">$16</span></p>
+                    <p class="description">Beef patty, Swiss cheese, sautéed mushrooms.</p>
+                    <i class="fas fa-cart-plus cart-icon" onclick="addToCart('Mushroom Swiss Burger', 16, 1)"></i>
+                </div>
+                <div class="pizza-item">
+                    <p><span>Veggie Burger</span> <span class="price">$14</span></p>
+                    <p class="description">Veggie patty, avocado, lettuce, tomato, tangy sauce.</p>
+                    <i class="fas fa-cart-plus cart-icon" onclick="addToCart('Veggie Burger', 14, 1)"></i>
+                </div>
+                <!-- Steakovi -->
+                <h2 class="section-title">Steakes</h2>
+                <div class="pizza-item">
+                    <p><span>T-Bone Steak</span> <span class="price">$14</span></p>
+                    <p class="description">Strip steak and tenderloin, T-shaped bone.</p>
+                    <i class="fas fa-cart-plus cart-icon" onclick="addToCart('T-Bone Steak', 14, 1)"></i>
+                </div>
+                <div class="pizza-item">
+                    <p><span>Ribeye Steak</span> <span class="price">$15</span></p>
+                    <p class="description">Ribeye cut, marbled fat, grilled or pan-seared.</p>
+                    <i class="fas fa-cart-plus cart-icon" onclick="addToCart('Ribeye Steak', 15, 1)"></i>
+                </div>
+                <div class="pizza-item">
+                    <p><span>Filet Mignon</span> <span class="price">$12</span></p>
+                    <p class="description">Tenderloin cut, very tender, mild flavor.</p>
+                    <i class="fas fa-cart-plus cart-icon" onclick="addToCart('Filet Mignon', 12, 1)"></i>
+                </div>
+                <div class="pizza-item">
+                    <p><span>New York Strip</span> <span class="price">$18</span></p>
+                    <p class="description">Short loin cut, well-marbled, grilled.</p>
+                    <i class="fas fa-cart-plus cart-icon" onclick="addToCart('New York Strip', 18, 1)"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="menuScript.js"></script>
+    <script src="kosarica.js"></script>
+</body>
+</html>

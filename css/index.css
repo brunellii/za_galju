@@ -1,0 +1,103 @@
+* {
+    margin: 0px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* CSS for Header */
+#header {
+    background-color: rgba(51, 51, 51, 0.7);
+    padding: 20px;
+    position: fixed;
+    width: 90%;
+    max-width: 1300px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    transition: background-color 0.3s ease; /* Add transition for smooth color change */
+}
+
+.sticky {
+    background-color: rgba(51, 51, 51, 0.9); /* Change background color when sticky */
+}
+
+
+/* CSS for Navigation */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center; /* centrirani linkovi */
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 100px; /* razmaci linkova */
+}
+
+nav ul li:last-child {
+    margin-right: 20px; /* maknuta margina sa skroz desnog elementa nav-a */
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-family: "Roboto Slab", serif;
+    font-size: 20px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ff7e5f;
+}
+
+
+/* CSS for Wallpaper Section */
+
+#section1 {
+    background-image: url("Pizza2.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.text-container {
+    flex: 1 1 auto;
+    padding: 0 50%;
+    margin-top: 500px;
+}
+
+.text-container h1 {
+    font-size: 65px;
+    margin-bottom: 20px;
+    font-family: "Pacifico", cursive;
+    white-space: nowrap;
+}
+
+.text-container p {
+    font-size: 30px;
+    font-family: "Roboto Slab", serif;
+    font-optical-sizing: auto;
+    font-weight: 100px;
+    font-style: normal;
+      
+}
+
+
+/* CSS for subsequent sections */
+#section3,
+#section4,
+#section5 {
+    padding-top: 20px; /* Adjust the top padding as needed */
+}
+

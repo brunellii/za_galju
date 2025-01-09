@@ -1,0 +1,79 @@
+/* login.css */
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Pacifico', cursive;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Stiliziranje login forme */
+#loginSection {
+    background-color: #1c1c1c; /* Tamni background s malo svjetlije nijanse */
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;  /* širina forme */
+    margin: 100px auto;  /* centrirano na ekranu */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* lagana sjena oko forme */
+    border: 2px solid #f8b595; /* svjetla boja za border */
+}
+
+#loginSection h2 {
+    font-size: 32px;
+    color: #f8b595;
+    margin-bottom: 20px;
+}
+
+#loginSection input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #f8b595; /* isti border kao za formu */
+    background-color: #2c2c2c; /* tamni pozadinski dio inputa */
+    color: #fff; /* bijeli tekst */
+    font-family: "Pacifico", cursive;
+    font-size: 18px;
+}
+
+#loginSection input:focus {
+    outline: none;
+    border-color: #ff7e5f; /* naglašeni border prilikom fokusa */
+}
+
+#loginSection button {
+    padding: 10px;
+    background-color: #f8b595;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 85%;
+    margin-top: 15px;
+    font-family: "Pacifico", cursive;
+    font-size: 18px;
+}
+
+#loginSection button:hover {
+    background-color: #ff7e5f; /* boja na hover */
+}
+
+/* Stil za gumb za otkazivanje */
+#loginSection button[type="button"] {
+    background-color: #333; /* tamna boja za Cancel dugme */
+    color: #f8b595;
+    font-family: "Pacifico", cursive;
+    margin-top: 10px;
+}
+
+#loginSection button[type="button"]:hover {
+    background-color: #444; /* tamnija nijansa na hover */
+}
+
+/* Dodatni stil za poruku o grešci */
+#errorMessage {
+    color: #ff7e5f;
+    font-size: 16px;
+    margin-top: 10px;
+}

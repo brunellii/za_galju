@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<title>CART</title>
+<link rel="stylesheet" href="kosarica.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="menu.html">MENU</a></li>
+            <li><a href="korasica.html"><i class="fas fa-shopping-cart"></i></a></li>
+        </ul>
+    </nav>
+    <h1>CART</h1>
+</header>
+
+<table>
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Amount</th>
+            <th>Add/Remove</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- JavaScript će dinamički umetnuti redove za svaki proizvod u košarici -->
+    </tbody>
+</table>
+
+<p><strong>Total: </strong><span id="totalPrice">0</span> </p>
+
+<button type="button" onclick="checkout()">Checkout</button>
+<button type="button" onclick="clearCart()">Empty the cart</button>
+
+<script src="kosarica.js"></script>
+<form action="submit-order.php" method="post"></form>
+
+</body>
+</html>
